@@ -1,9 +1,29 @@
 body {
+  background-color:#EFF1C5;
   margin: 0px;
   padding: 0px;
 }
 
-h1 {
-  margin: 0px;
-  padding: 0px
+.container-fluid {
+  
+  background-color: #002E2C ;
+  padding: 3vh;
+  margin: 2vh 2vh;
+}
+
+.navbar-brand {
+  color: #EFF1C5;
+  font-size: 5.5vh;
+}
+
+.nav-link {
+  color: #E3E7AF;
+  font-size: 4vh;       
+}
+
+.active {
+  color: white;
+}
+.nav-item {
+  margin: 10px;
 }
