@@ -21,9 +21,11 @@ fieldset {
   margin: 3vh;
   margin-right: 6vh;
 }
+.navbar-brand {
+  font-size: 3.5vh;
+}
 
 .navbar {
-  background-color: #f1f3f4;
   font-size: 3vh;
 }
 
@@ -50,14 +52,6 @@ img {
 .carousel-inner {
   text-align: center;
   margin-top: 6vh;
-}
-
-.carousel-caption {
-  background-color: whitesmoke;
-  width: 13vw;
-  border-radius: 2vh;
-  margin-left: 23vh;
-  padding: 1vh;
 }
 .carousel {
   width: 50vw;
