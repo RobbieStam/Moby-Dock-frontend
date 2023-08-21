@@ -1,29 +1,70 @@
 body {
-  background-color:#EFF1C5;
-  margin: 0px;
   padding: 0px;
+  margin: 0px;
+  background-image: url("https://images.pexels.com/photos/3760323/pexels-photo-3760323.jpeg?cs=srgb&dl=pexels-stas-knop-3760323.jpg&fm=jpg");
+  background-position: absolute;
+  background-size: cover;
+  background-position-y:20% ;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.container-fluid {
-  
-  background-color: #002E2C ;
-  padding: 3vh;
-  margin: 2vh 2vh;
+#carouselExampleDark {
+  text-align: center;
+  border-radius: 2vh;
 }
 
-.navbar-brand {
-  color: #EFF1C5;
-  font-size: 5.5vh;
+#container-flex {
+  display: flex;
+  flex-direction: row;
 }
 
-.nav-link {
-  color: #E3E7AF;
-  font-size: 4vh;       
+img {
+  height: 50vh;
+  margin: 0px
+}
+.carousel-inner {
+  text-align: center;
+  margin-top: 6vh;
 }
 
-.active {
-  color: white;
+.carousel-caption {
+  background-color: whitesmoke;
+  width: 13vw;
+  border-radius: 2vh;
+  margin-left: 24vh;
+  height: 15vh;
+  padding: 10px;
 }
-.nav-item {
-  margin: 10px;
+.carousel {
+  width: 50vw;
+  height: 70vh;
+  margin-top: 10vh;
+}
+
+header {
+  text-align: left;
+  margin: 10vh 9vw;
+}
+
+h1 {
+  font-family: Barriecito;
+  font-size: 20vh;
+}
+
+h2 {
+  background-color: ;
+}
+
+.homescreen-btns {
+  border: 3px solid #212529;
+  background-color: transparent;
+  margin: 1.2vw;
+  padding: 2vh;
+  border-radius: 2vh;
+  font-size: 3vh;
+}
+
+.homescreen-btns:hover {
+  background-color: #212529;
+  color: #e9ab00;
 }
