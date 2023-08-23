@@ -4,23 +4,21 @@ h3 {
   align-items: left;
 } 
 
-#borrowedBooksTable {
+#reservedBooksTable {
   margin-top: 20px;
   width: 100%;
   font-size: 1.1rem;
   border-radius: 2vh;
 }
 
-#borrowedBooksTable, 
+#reservedBooksTable, 
 th,
 td {
   padding: 15px;
 }
 
 td {
-  /* background: #fffde3; */
   background: linear-gradient(to bottom, #fff6c0, #fffde3, #fffde2, #fffde1, #fffeef);
-
 }
 
 th {
@@ -28,18 +26,15 @@ th {
 }
 
 #tableHeadingName{
-  border-radius: 1vh 0vh 0vh;
   width: 50%;
   word-wrap: break-word;
 }
-#tableHeadingCheckout{
-  border-radius: 0vh;
+#tableHeadingPickUpBy{
   width: 25%;
   word-wrap: break-word;
 
 }
-#tableHeadingDue{
-  border-radius: 0vh 1vh 0vh 0vh;
+#tableHeadingReservedId{
   width: 25%;
   word-wrap: break-word;
 }
