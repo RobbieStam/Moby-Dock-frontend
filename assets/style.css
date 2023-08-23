@@ -22,11 +22,11 @@ fieldset {
   margin-right: 6vh;
 }
 .navbar-brand {
-  font-size: 3.5vh;
+  font-size: 30px;
 }
 
 .navbar {
-  font-size: 3vh;
+  font-size: 25px;
 }
 
 #carouselExampleDark {
@@ -40,8 +40,8 @@ fieldset {
 }
 
 img {
-  height: 50vh;
-  width: 16vw;
+  height: 320px;
+  width: 225px;
   margin: 0px;
   border-top: 0.6vh solid #f1f3f4;
   border-right: 2vh solid #f1f3f4;

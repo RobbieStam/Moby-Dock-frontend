@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barriecito&family=Ubuntu&display=swap" rel="stylesheet">
+  <script defer src="assets/carousel.js"></script>
   <title>Frolin Library</title>
 </head>
 
@@ -23,9 +24,9 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
-          <a class="nav-link" href="./login.html">Login/Register</a>
           <a class="nav-link" href="./search.html">Explore Library</a>
           <a class="nav-link" href="#">Lend a Book</a>
+          <a class="nav-link" href="./login.html">Login</a>
           <a class="nav-link" href="./account.html">Account</a>
         </div>
       </div>
@@ -35,7 +36,7 @@
   <div id="container-flex">
     <header>
       <h1>Frolin <br> Library</h1>
-      <button onclick="window.location.href='./login.html'" class="homescreen-btns">Login/Register</button>
+      <button onclick="window.location.href='./register.html'" class="homescreen-btns">Sign Up Here!</button>
       <button onclick="window.location.href='./search.html'" class="homescreen-btns">Explore Library</button>
    </header>
 
@@ -48,17 +49,17 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active" data-bs-interval="10000">
-        <img src="https://s26162.pcdn.co/wp-content/uploads/2018/02/gatsby-original2.jpg" class="carousel-image" alt="...">
+        <img id="c-img-1" class="carousel-image" alt="...">
         <div class="carousel-caption d-none d-md-block">
         </div>
       </div>
       <div class="carousel-item" data-bs-interval="2000">
-        <img src="https://pictures.abebooks.com/isbn/9780261103344-uk.jpg" class="carousel-image" alt="...">
+        <img id="c-img-2" class="carousel-image" alt="...">
         <div class="carousel-caption carousel-image d-none d-md-block">
         </div>
       </div>
       <div class="carousel-item">
-        <img src="..." class="d-block w-100" alt="...">
+        <img id="c-img-3" class="carousel-image" alt="...">
         <div class="carousel-caption carousel-image d-none d-md-block">
         </div>
       </div>
