@@ -20,12 +20,19 @@ async function fetchImage3(id) {
   carouselImageThree.src=`${data.image}`
 }
 
-function randomId () {
-  return Math.floor(Math.random() * 30) + 1;
+function randomId1 () {
+  return Math.floor(Math.random() * 10) + 1;
 } 
 
-console.log(randomId())
+function randomId2 () {
+  return Math.floor(Math.random() * 10) + 11;
+} 
 
-fetchImage1(randomId());
-fetchImage2(randomId());
-fetchImage3(randomId());
+function randomId3 () {
+  return Math.floor(Math.random() * 10) + 21;
+} 
+
+
+fetchImage1(randomId1());
+fetchImage2(randomId2());
+fetchImage3(randomId3());

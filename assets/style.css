@@ -48,11 +48,15 @@ img {
   border-top-right-radius: 1vh;
   border-bottom-right-radius: 0.2vh;
   border-top-left-radius: 1vh ;
+  box-shadow: black;
+  box-shadow: 100px;
 }
+
 .carousel-inner {
   text-align: center;
   margin-top: 6vh;
 }
+
 .carousel {
   width: 50vw;
   height: 70vh;
