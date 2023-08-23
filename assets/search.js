@@ -1,15 +1,3 @@
-const searchInput = document.querySelector('.form-control')
-const searchForm = document.querySelector('.search-box')
-
-searchForm.addEventListener('submit', async (e) => {
-    e.preventDefault()
-
-    const searchBook = searchInput.ariaValueMax
-
-    const searchResult = await fetch(`http://localhost:4000/books${searchBook}`)
-    const bookData = await searchResult.json()
-})
-
 const genreCards = document.querySelectorAll('.card-item');
 genreCards.forEach(card => {
   card.addEventListener('click', () => {
