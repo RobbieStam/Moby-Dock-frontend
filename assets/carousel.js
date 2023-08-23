@@ -29,7 +29,7 @@ function randomId2 () {
 } 
 
 function randomId3 () {
-  return Math.floor(Math.random() * 10) + 21;
+  return Math.floor(Math.random() * 9) + 21;
 } 
 
 
