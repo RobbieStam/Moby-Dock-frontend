@@ -1,51 +1,51 @@
 
   .fiction {
-    --bg-color: #ffd861;
+    --bg-color: #f8f27a;
     --bg-color-light: #ffeeba;
     --text-color-hover: #4c5656;
-    --box-shadow-color: rgba(255, 215, 97, 0.48);
+    --box-shadow-color: rgba(249, 245, 132, 0.48);
   }
   
   .romance {
-    --bg-color: #b8f9d3;
+    --bg-color: #f9b9b8;
     --bg-color-light: #e2fced;
     --text-color-hover: #4c5656;
-    --box-shadow-color: rgba(184, 249, 211, 0.48);
+    --box-shadow-color: rgba(249, 186, 184, 0.48);
   }
   
   .travel {
     --bg-color: #ceb2fc;
     --bg-color-light: #f0e7ff;
-    --text-color-hover: #fff;
+    --text-color-hover: #4c5656;
     --box-shadow-color: rgba(206, 178, 252, 0.48);
   }
   
   .food {
-    --bg-color: #dce9ff;
-    --bg-color-light: #f1f7ff;
+    --bg-color: #dcfffe;
+    --bg-color-light: #f1fffe;
     --text-color-hover: #4c5656;
-    --box-shadow-color: rgba(220, 233, 255, 0.48);
+    --box-shadow-color: rgba(220, 255, 252, 0.48);
   }
 
   .autobiography {
-    --bg-color: #dce9ff;
-    --bg-color-light: #f1f7ff;
+    --bg-color: #dce2ff;
+    --bg-color-light: #f1f3ff;
     --text-color-hover: #4c5656;
-    --box-shadow-color: rgba(220, 233, 255, 0.48);
+    --box-shadow-color: rgba(220, 227, 255, 0.48);
   }
 
   .biography {
-    --bg-color: #dce9ff;
+    --bg-color: #ffc96b;
     --bg-color-light: #f1f7ff;
     --text-color-hover: #4c5656;
-    --box-shadow-color: rgba(220, 233, 255, 0.48);
+    --box-shadow-color: rgba(250, 203, 127, 0.48);
   }
 
   .crime {
-    --bg-color: #dce9ff;
+    --bg-color: #fcdcff;
     --bg-color-light: #f1f7ff;
     --text-color-hover: #4c5656;
-    --box-shadow-color: rgba(220, 233, 255, 0.48);
+    --box-shadow-color: rgba(254, 220, 255, 0.48);
   }
 
   .fitness {
@@ -59,10 +59,8 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    background-color: #ffffff;
+    background-color: #ffffff00;
     padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   }  
 
   .card-item {
@@ -71,7 +69,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #fff;
+    background-color: #ffffff00;
     border-radius: 15px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
@@ -84,7 +82,7 @@
   }
 
   .card-item:hover {
-    background-color: #d1d1d1;
+    background-color: #d1d1d100;
     transform: scale(1.03);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   }
@@ -104,9 +102,9 @@
     background: var(--bg-color);
   }
   
-  .card-item:hover .circle:after {
+  /* .card-item:hover .circle:after {
     background: var(--bg-color-light);
-  }
+  } */
   
   .card-item:hover p {
     color: var(--text-color-hover);
@@ -119,9 +117,9 @@
   }
 
   .card-item p {
-    font-size: 17px;
-    color: #4c5656;
-    margin-top: 30px;
+    font-size: 20px;
+    color: #ffffff;
+    margin-top: 25px;
     z-index: 1000;
     transition: color 0.3s ease-out;
   }
@@ -130,8 +128,7 @@
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    background: #fff;
-    border: 2px solid var(--bg-color);
+    background: #ffffff00;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -141,19 +138,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: -1;
-  }
-
-  .circle:after {
-    content: "";
-    width: 118px;
-    height: 118px;
-    display: block;
-    position: absolute;
-    background: var(--bg-color);
-    border-radius: 50%;
-    top: 7px;
-    left: 7px;
-    transition: opacity 0.3s ease-out;
   }
 
   .circle svg {
