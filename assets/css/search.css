@@ -26,28 +26,39 @@ body {
   
   .cover-text {
     font-size: 80px;
-    margin-bottom: 20px;
-    position: absolute;
+    position: relative;
+    top: 55%;
+    transform: translateY(-50%);
+  }
+
+  .slogan-text {
+    font-size: 35px;
+    position: relative;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateY(-50%);
   }
   
   .search-box {
-    max-width: 700px; 
-    width: 80%;
-    background-color: rgba(255, 255, 255, 0.8); 
-    padding: 15px;
+    max-width: 800px; 
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.529); 
+    padding: 30px 15px;
     border-radius: 5px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     position: relative;
     z-index: 2;
-    margin-top: 460px;
+    margin-top: 250px;
+    margin-bottom: 0px;
+  }
+
+  .form-control {
+    height: 40px;
   }
 
   .input-group-text {
     background-color: transparent;
     border: none;
+    width: 100%;
+    height: 100%;
   }
 
   .btn-outline-secondary {
@@ -55,7 +66,7 @@ body {
     border: none;
     border-left: 1px solid #ccc;
     padding: 20px;
-    color: #333;
+    color: #fff;
   }
 
   .dropdown-menu {
@@ -81,4 +92,9 @@ body {
     font-size: 3vh;
   }
   
+  .suggest {
+    font-size: 30px;
+    margin-top: 50px;
+    margin-bottom: 70px;
+  }
   
