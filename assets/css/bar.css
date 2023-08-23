@@ -1,0 +1,30 @@
+.search-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #dfe1e5;
+    border-radius: 24px;
+    padding: 8px;
+    background-color: #fff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 80px;
+  }
+
+  .search-input {
+    border: none;
+    outline: none;
+    padding: 8px 40px 8px 40px;
+    width: 600px;
+    font-size: 16px;
+    background: url('https://www.google.com/images/icons/material/system/2x/search_black_48dp.png') no-repeat 8px center;
+    background-size: 20px;
+  }
+
+  .search-button {
+    background-color: #f2f2f2;
+    border: none;
+    border-radius: 0 24px 24px 0;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+  }
