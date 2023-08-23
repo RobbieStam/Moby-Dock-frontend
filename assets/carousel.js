@@ -21,7 +21,7 @@ async function fetchImage3(id) {
 }
 
 function randomId () {
-  return Math.floor(Math.random() * 30);
+  return Math.floor(Math.random() * 30) + 1;
 } 
 
 console.log(randomId())
