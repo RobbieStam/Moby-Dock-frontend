@@ -1,11 +1,5 @@
-// const borrowedBooks = [
-//   { name: 'Moby-Dick', checkoutDate: '22-8-2023', dueDate: '22-9-2023' },
-//   { name: 'The Great Gatsby', checkoutDate: '22-8-2023', dueDate: '22-9-2023' }
-// ]
-
-
-// async function fetchBorrowedBooks() { 
-//   const table = document.querySelector('#bookTrackerTable')
+// async function fetchReservedBooks() { 
+//   const table = document.querySelector('#reservedBooksTable')
 
 //   const url = "https://moby-dock-api.onrender.com/account"
 //   const response = await fetch(url)
@@ -13,49 +7,48 @@
 
 //   data.forEach(book => {
 //     const row = document.createElement('tr')
+//     const reservedId = document.createElement('td')
 //     const name = document.createElement('td')
-//     const checkoutDate = document.createElement('td')
-//     const dueDate = document.createElement('td')
+//     const pickUpBy = document.createElement('td')
+//     reservedId.textContent = book.reservedId
 //     name.textContent = book.name
-//     checkoutDate.textContent = book.checkoutDate
-//     dueDate.textContent = book.dueDate
+//     pickUpBy.textContent = book.pickUpBy
 
-//     row.appendChild(name)
-//     row.appendChild(checkoutDate)
-//     row.appendChild(dueDate)
+//     row.appendChild(reservedId)
+//     row.appendChild(name);
+//     row.appendChild(pickUpBy)
 
 //     table.appendChild(row)
 //   })
 // }
 
-// fetchBorrowedBooks()
+// fetchReservedBooks()
 
 // using fake data to check if it is working when there is no data to fetch from yet
-  async function fetchBorrowedBooks() {
+  async function fetchReservedBooks() {
       const mockResponse = [
-        { name: 'The Da Vinci Code', checkoutDate: '22-8-2023', dueDate: '22-9-2023' },
-        { name: 'Harry Potter and the Deathly Hallows', checkoutDate: '22-8-2023', dueDate: '22-9-2023' }
+        { reservedId: '1', name: 'The Da Vinci Code', pickUpBy: '2023-08-23' }, { reservedId: '2', name: 'Moby-Dick', pickUpBy: '2023-08-23' }, { reservedId: '3', name: 'The Pride and Prejudice', pickUpBy: '2023-08-23' }
       ]
-      const table = document.querySelector('#borrowedBooksTable')
+      const table = document.querySelector('#reservedBooksTable')
 
       setTimeout(() => {
         mockResponse.forEach(book => {
           const row = document.createElement('tr')
+          const reservedId = document.createElement('td')
           const name = document.createElement('td')
-          const checkoutDate = document.createElement('td')
-          const dueDate = document.createElement('td')
+          const pickUpBy = document.createElement('td')
+          reservedId.textContent = book.reservedId
           name.textContent = book.name
-          checkoutDate.textContent = book.checkoutDate
-          dueDate.textContent = book.dueDate
+          pickUpBy.textContent = book.pickUpBy
 
+          row.appendChild(reservedId)
           row.appendChild(name);
-          row.appendChild(checkoutDate)
-          row.appendChild(dueDate)
+          row.appendChild(pickUpBy)
 
           table.appendChild(row)
         })
       }, 1000)
   }
 
-  fetchBorrowedBooks()
+  fetchReservedBooks()
 
