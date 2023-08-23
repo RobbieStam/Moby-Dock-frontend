@@ -1,7 +1,7 @@
 @import url("genre.css");
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: ubuntu, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f7f7f7;
@@ -11,7 +11,7 @@ body {
     background-size: cover;
     background-position-y:20% ;
   }
-
+  
   .background-cover {
     background-position: right;
     height: 500px;
@@ -21,7 +21,7 @@ body {
     align-items: center;
     position: relative;
     text-align: center;
-    color: #fff;
+    color: #212529;
   }
   
   .cover-text {
@@ -66,7 +66,7 @@ body {
     border: none;
     border-left: 1px solid #ccc;
     padding: 20px;
-    color: #fff;
+    color: #212529;
   }
 
   .dropdown-menu {
@@ -83,18 +83,18 @@ body {
   .dropdown-item:hover {
     background-color: #f5f5f5;
   }
-
-  .navbar-brand {
-    font-size: 3.5vh;
-  }
-  
-  .navbar {
-    font-size: 3vh;
-  }
   
   .suggest {
     font-size: 30px;
     margin-top: 50px;
     margin-bottom: 70px;
+  }
+
+  .navbar-brand {
+    font-size: 30px;
+  }
+  
+  .navbar {
+    font-size: 25px;
   }
   
