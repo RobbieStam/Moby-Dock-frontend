@@ -1,0 +1,45 @@
+h3 {
+  margin-top: 20px;
+  display: flex;
+  align-items: left;
+} 
+
+#borrowedBooksTable {
+  margin-top: 20px;
+  width: 100%;
+  font-size: 1.1rem;
+  border-radius: 2vh;
+}
+
+#borrowedBooksTable, 
+th,
+td {
+  padding: 15px;
+}
+
+td {
+  /* background: #fffde3; */
+  background: linear-gradient(to bottom, #fff6c0, #fffde3, #fffde2, #fffde1, #fffeef);
+
+}
+
+th {
+  background: linear-gradient(to bottom, #f3b304, #ffc107, #f3b304);
+}
+
+#tableHeadingName{
+  border-radius: 1vh 0vh 0vh;
+  width: 50%;
+  word-wrap: break-word;
+}
+#tableHeadingCheckout{
+  border-radius: 0vh;
+  width: 25%;
+  word-wrap: break-word;
+
+}
+#tableHeadingDue{
+  border-radius: 0vh 1vh 0vh 0vh;
+  width: 25%;
+  word-wrap: break-word;
+}
