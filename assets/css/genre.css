@@ -1,51 +1,51 @@
 
   .fiction {
-    --bg-color: #ffd861;
+    --bg-color: #f8f27a;
     --bg-color-light: #ffeeba;
     --text-color-hover: #4c5656;
-    --box-shadow-color: rgba(255, 215, 97, 0.48);
+    --box-shadow-color: rgba(249, 245, 132, 0.48);
   }
   
   .romance {
-    --bg-color: #b8f9d3;
+    --bg-color: #f9b9b8;
     --bg-color-light: #e2fced;
     --text-color-hover: #4c5656;
-    --box-shadow-color: rgba(184, 249, 211, 0.48);
+    --box-shadow-color: rgba(249, 186, 184, 0.48);
   }
   
   .travel {
     --bg-color: #ceb2fc;
     --bg-color-light: #f0e7ff;
-    --text-color-hover: #fff;
+    --text-color-hover: #4c5656;
     --box-shadow-color: rgba(206, 178, 252, 0.48);
   }
   
   .food {
-    --bg-color: #dce9ff;
-    --bg-color-light: #f1f7ff;
+    --bg-color: #dcfffe;
+    --bg-color-light: #f1fffe;
     --text-color-hover: #4c5656;
-    --box-shadow-color: rgba(220, 233, 255, 0.48);
+    --box-shadow-color: rgba(220, 255, 252, 0.48);
   }
 
   .autobiography {
-    --bg-color: #dce9ff;
-    --bg-color-light: #f1f7ff;
+    --bg-color: #dce2ff;
+    --bg-color-light: #f1f3ff;
     --text-color-hover: #4c5656;
-    --box-shadow-color: rgba(220, 233, 255, 0.48);
+    --box-shadow-color: rgba(220, 227, 255, 0.48);
   }
 
   .biography {
-    --bg-color: #dce9ff;
+    --bg-color: #ffc96b;
     --bg-color-light: #f1f7ff;
     --text-color-hover: #4c5656;
-    --box-shadow-color: rgba(220, 233, 255, 0.48);
+    --box-shadow-color: rgba(250, 203, 127, 0.48);
   }
 
   .crime {
-    --bg-color: #dce9ff;
+    --bg-color: #fcdcff;
     --bg-color-light: #f1f7ff;
     --text-color-hover: #4c5656;
-    --box-shadow-color: rgba(220, 233, 255, 0.48);
+    --box-shadow-color: rgba(254, 220, 255, 0.48);
   }
 
   .fitness {
