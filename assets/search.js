@@ -94,68 +94,72 @@ function shuffleArray(array) {
   return array;
 }
 
+const searchButton = document.querySelector('.search-button');
+const searchInput = document.querySelector('.search-input');
+const modalTitle = document.getElementById('modal-title');
+const modalAuthor = document.getElementById('modal-author');
+const modalGenre = document.getElementById('modal-genre');
+const modalReserved = document.getElementById('modal-reserved');
+const modalImage = document.getElementById('modal-image');
 
+searchButton.addEventListener('click', async () => {
+  const searchTerm = searchInput.value.trim();
 
+  if (searchTerm !== '') {
+    try {
+      const response = await fetch(`http://localhost:4000/books/name/${searchTerm}`);
+      const book = await response.json();
 
+    if (response.ok) {
+      modalTitle.textContent = book.name;
+      modalAuthor.textContent = book.author;
+      modalGenre.textContent = book.genre;
+      modalReserved.textContent = book.reserved ? 'TRUE' : 'FALSE';
 
+      modalImage.src = book.image;
 
+      const reserveButton = document.createElement('button');
+      reserveButton.classList.add('btn', 'btn-primary', 'reserve-btn');
+      reserveButton.textContent = 'Reserve';
+      reserveButton.addEventListener('click', async () => {
+        try {
+          const bookId = book.id;
+          const name = book.name;
+          const pickUpBy = new Date();
+          pickUpBy.setDate(pickUpBy.getDate() + 7);
 
+          const options = {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              book_id: bookId,
+              name: name,
+              pick_up_by: pickUpBy
+            })
+          };
 
+          const reserveResponse = await fetch('http://localhost:4000/account', options)
 
+          if (reserveResponse.ok) {
+            alert('Book reserved')
+          } else {
+            alert('Unable to reserve book.')
+          }
+        } catch (error) {
+          console.error('Error reserving book: ', error)
+        }
+      })
 
+            modalReserved.appendChild(reserveButton)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-document.querySelector('#searchForm').addEventListener('submit', async (e) => {
-  e.preventDefault();
-
-  const searchInput = document.querySelector('#searchInput');
-  const searchBookId = searchInput.value;
-
-  try {
-    const searchResult = await fetch(`http://localhost:4000/books/${searchBookId}`);
-    if (!searchResult.ok) {
-      throw new Error('Failed to fetch book data');
+            $('#bookModal').modal('show')
+          } else {
+          alert('Apologies! That book is not in our library!')
+          }
+      } catch (error) {
+        console.error('Error fetching book:', error);
+      }
     }
-    const bookData = await searchResult.json();
-
-    displayBookInfoModal(bookData);
-  } catch (error) {
-    console.error('Error fetching book data:', error);
-  }
-});
-
-function displayBookInfoModal(bookData) {
-  const modalTitle = document.getElementById('genreModalLabel');
-  const modalBody = document.querySelector('.modal-body');
-
-  modalTitle.textContent = bookData.name;
-
-  modalBody.innerHTML = `
-    <p>Author: ${bookData.author}</p>
-    <p>Genre: ${bookData.genre}</p>
-    <img src="${bookData.image}" alt="Book Cover">
-    <button class="btn btn-primary reserve-btn" data-book-id="${bookData.id}">Reserve</button>
-  `;
-
-  const genreModal = new bootstrap.Modal(document.getElementById('genreModal'));
-  genreModal.show();
-  elementById('genreModal');
-  genreModal.show();
-}
-
-
+})
