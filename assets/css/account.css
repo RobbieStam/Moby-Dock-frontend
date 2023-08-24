@@ -1,0 +1,107 @@
+h3 {
+  margin-top: 20px;
+  display: flex;
+  align-items: left;
+} 
+
+#reservedBooksTable {
+  margin-top: 20px;
+  width: 100%;
+  font-size: 1.1rem;
+  border-radius: 2vh;
+}
+
+#reservedBooksTable, 
+th,
+td {
+  padding: 15px;
+}
+
+td {
+  background: linear-gradient(to bottom, #fff6c0, #fffde3, #fffde2, #fffde1, #fffeef);
+}
+
+th {
+  background: linear-gradient(to bottom, #f3b304, #ffc107, #f3b304);
+}
+
+#tableHeadingName{
+  width: 50%;
+  word-wrap: break-word;
+}
+#tableHeadingPickUpBy{
+  width: 25%;
+  word-wrap: break-word;
+
+}
+#tableHeadingReservedId{
+  width: 20%;
+  word-wrap: break-word;
+}
+
+#tableHeadingCancel{
+  width: 5%;
+  word-wrap: break-word;
+}
+
+.cancelButton {
+  background-color: hsl(44, 97%, 48%, 0.6);
+  border-radius: 35%;
+  height: 30px;
+  width: 30px;
+  border-color:#212521;
+  text-align: center;
+}
+
+.cancelButton:hover {
+  background-color: #212529;
+  color:#f3b304;
+  border-color: #f3b304;
+}
+
+#confirmationModal {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  overflow: auto;
+  top: 15%;
+}
+
+.result-content {
+  width: 80%;
+  max-width: 400px;
+  margin: 15% auto;
+  padding: 20px;
+  text-align: center;
+  background-color: #ffedce;
+  border: 2px solid #212529;
+  border-radius: 10px;
+  font-size: 1.1rem;
+}
+
+#message {
+  padding-top: 20px;
+}
+
+#confirmBtn,
+#cancelBtn {
+  background-color:  hsl(44, 97%, 48%, 0.6);
+  width: 80px;
+  height: 40px;
+  margin: 20px;
+  border-radius: 5px;
+}
+
+#confirmBtn:hover {
+  background-color: #212529;
+  color:#f3b304;
+  border-color: #f3b304;
+}
+
+#cancelBtn:hover {
+  background-color: #212529;
+  color:#f3b304;
+  border-color: #f3b304;
+}
