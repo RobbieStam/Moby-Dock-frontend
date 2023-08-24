@@ -90,11 +90,13 @@ fieldset {
 img {
   height: 400px;
   width: 275px;
+  min-width: 20vw;
+  min-height: 58vh;
   margin: 0px;
-  border-top: 0.6vh solid #f1f3f4;
-  border-right: 2vh solid #f1f3f4;
-  border-top-right-radius: 1vh;
-  border-bottom-right-radius: 0.2vh;
+  border-top: 0.6vh solid #f1f3f4cb;
+  border-right: 2vh solid #f1f3f4d8;
+  border-top-right-radius: 0.5vh;
+  border-bottom-right-radius: 0.4vh;
   border-top-left-radius: 1vh ;
 }
 
