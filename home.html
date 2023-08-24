@@ -16,11 +16,31 @@
 </head>
 
 <body>
+  <nav class="navbar sticky-top navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./home.html">Frolin Library</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" aria-current="page" href="./home.html">Home</a>
+          <a class="nav-link" href="./search.html">Explore Library</a>
+          <a class="nav-link" href="./lending.html">Trade Books</a>
+          <a class="nav-link" href="./account.html">Account</a>
+          <li class="nav-item">
+            <button id="logout-btn" class="nav-link btn btn-link">Logout</button>
+          </li>
+        </div>
+      </div>
+    </div>
+  </nav>
+
   <div id="container-flex">
     <header>
       <h1>Frolin <br> Library</h1>
-      <button onclick="window.location.href='./login.html'" class="landingpage-btns">Login</button>
-      <button onclick="window.location.href='./register.html'" class="landingpage-btns">Register</button>
+      <button onclick="window.location.href='./register.html'" class="homescreen-btns">Sign Up Here!</button>
+      <button onclick="window.location.href='./search.html'" class="homescreen-btns">Explore Library</button>
    </header>
 
    <div id="carouselExampleDark" class="carousel carousel-dark slide">
