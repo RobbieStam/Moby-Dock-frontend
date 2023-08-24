@@ -20,11 +20,16 @@
   }
 
   .search-button {
-    background-color: #d9fdc6;
-    border: none;
+    border: 3px solid #212529;
+    background-color: #e9ab00;
     border-radius: 0 24px 24px 0;
-    padding: 8px 16px;
+    padding: 10px 20px;
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
+  }
+  
+  .search-button:hover {
+    background-color: #212529;
+    color: #e9ab00;
   }

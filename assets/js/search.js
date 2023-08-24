@@ -1,12 +1,12 @@
 const genreCards = document.querySelectorAll('.card-item');
 genreCards.forEach(card => {
   card.addEventListener('click', () => {
-    const genre = card.getAttribute('data-genre');
+    const genre = card.classList[1];
     openGenreModal(genre);
   });
 });
 
-async function openGenreModal() {
+async function openGenreModal(genre) {
     const modalTitle = document.getElementById('genreModalLabel');
     const modalBody = document.querySelector('.modal-body');
   
@@ -15,13 +15,15 @@ async function openGenreModal() {
     modalBody.innerHTML = '';
   
     try {
-      const response = await fetch(`http://localhost:4000/books`);
+      const response = await fetch(`https://frolin-library-api.onrender.com/books/genre/${genre}`);
       const suggestions = await response.json();
 
-      const maxSuggestions = Math.min(suggestions.length, 5);
+      const shuffledSuggestions = shuffleArray(suggestions);
+
+      const maxSuggestions = Math.min(shuffledSuggestions.length, 5);
 
       for (let i = 0; i < maxSuggestions; i++) {
-        const book = suggestions[i];
+        const book = shuffledSuggestions[i];
 
         const bookElement = document.createElement('div');
         bookElement.classList.add('book-suggestion');
@@ -32,9 +34,6 @@ async function openGenreModal() {
         const bookAuthor = document.createElement('p');
         bookAuthor.textContent = `Author: ${book.author}`;
         
-        const bookGenre = document.createElement('p');
-        bookGenre.textContent = `Genre: ${book.genre}`;
-        
         const reserveButton = document.createElement('button');
         reserveButton.classList.add('btn', 'btn-primary', 'reserve-btn');
         reserveButton.textContent = 'Reserve';
@@ -44,11 +43,8 @@ async function openGenreModal() {
         
         bookElement.appendChild(bookTitle);
         bookElement.appendChild(bookAuthor);
-        bookElement.appendChild(bookGenre);
         bookElement.appendChild(reserveButton)
         modalBody.appendChild(bookElement);
-
-        // implement when reserve button is c
 
   async function reserve() {
     reserveButton.addEventListener('click', async (event) => {
@@ -70,7 +66,7 @@ async function openGenreModal() {
       })
     }   
           
-    const response = await fetch('http://localhost:4000/account', options)
+    const response = await fetch('https://frolin-library-api.onrender.com/account', options)
   
     if (response.ok) {
       alert('Book reserved')
@@ -80,7 +76,6 @@ async function openGenreModal() {
     })
   }
   reserve()
-  // implement when reserve button is clicked, it post data to reserved book table - end
 };
 
 const genreModal = new bootstrap.Modal(document.getElementById('genreModal'));
@@ -90,78 +85,84 @@ console.error('Error fetching book suggestions:', error);
 }
 }
 
-//   function handleReserve(event) {
-//   const index = event.target.getAttribute('data-index');
-//   const reservedBook = suggestions[index];
-//   alert(`You've reserved ${reservedBook.title}`);
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-document.querySelector('#searchForm').addEventListener('submit', async (e) => {
-  e.preventDefault();
-
-  const searchInput = document.querySelector('#searchInput');
-  const searchBookId = searchInput.value;
-
-  try {
-    const searchResult = await fetch(`http://localhost:4000/books/${searchBookId}`);
-    if (!searchResult.ok) {
-      throw new Error('Failed to fetch book data');
-    }
-    const bookData = await searchResult.json();
-
-    displayBookInfoModal(bookData);
-  } catch (error) {
-    console.error('Error fetching book data:', error);
+function shuffleArray(array) {
+  // Fisher-Yates shuffle algorithm
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
   }
-});
-
-function displayBookInfoModal(bookData) {
-  const modalTitle = document.getElementById('genreModalLabel');
-  const modalBody = document.querySelector('.modal-body');
-
-  modalTitle.textContent = bookData.name;
-
-  modalBody.innerHTML = `
-    <p>Author: ${bookData.author}</p>
-    <p>Genre: ${bookData.genre}</p>
-    <img src="${bookData.image}" alt="Book Cover">
-    <button class="btn btn-primary reserve-btn" data-book-id="${bookData.id}">Reserve</button>
-  `;
-
-  const genreModal = new bootstrap.Modal(document.getElementById('genreModal'));
-  genreModal.show();
-  elementById('genreModal');
-  genreModal.show();
+  return array;
 }
 
+const searchButton = document.querySelector('.search-button');
+const searchInput = document.querySelector('.search-input');
+const modalTitle = document.getElementById('modal-title');
+const modalAuthor = document.getElementById('modal-author');
+const modalGenre = document.getElementById('modal-genre');
+const modalReserved = document.getElementById('modal-reserved');
+const modalImage = document.getElementById('modal-image');
 
+searchButton.addEventListener('click', async () => {
+  const searchTerm = searchInput.value.trim();
+
+  if (searchTerm === '') {
+    alert('Please enter a book name to search.');
+    return;
+  }
+    
+    try {
+      const response = await fetch(`https://frolin-library-api.onrender.com/books/name/${searchTerm}`);
+      const book = await response.json();
+
+    if (response.ok) {
+      modalTitle.textContent = book.name;
+      modalAuthor.textContent = book.author;
+      modalGenre.textContent = book.genre;
+      modalReserved.textContent = book.reserved ? 'TRUE' : 'FALSE';
+
+      modalImage.src = book.image;
+
+      const reserveButton = document.createElement('button');
+      reserveButton.classList.add('btn', 'btn-primary', 'reserve-btn');
+      reserveButton.textContent = 'Reserve';
+      reserveButton.addEventListener('click', async () => {
+        try {
+          const bookId = book.id;
+          const name = book.name;
+          const pickUpBy = new Date();
+          pickUpBy.setDate(pickUpBy.getDate() + 7);
+
+          const options = {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              book_id: bookId,
+              name: name,
+              pick_up_by: pickUpBy
+            })
+          };
+
+          const reserveResponse = await fetch('https://frolin-library-api.onrender.com/account', options)
+
+          if (reserveResponse.ok) {
+            alert('Book reserved')
+          } else {
+            alert('Unable to reserve book.')
+          }
+        } catch (error) {
+          console.error('Error reserving book: ', error)
+        }
+      })
+
+            modalReserved.appendChild(reserveButton)
+
+            $('#bookModal').modal('show')
+          } else {
+          alert('Apologies! That book is not in our library!')
+          }
+      } catch (error) {
+        console.error('Error fetching book:', error);
+      }
+  })
