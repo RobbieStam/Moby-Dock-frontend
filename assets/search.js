@@ -45,8 +45,9 @@ async function openGenreModal() {
         bookElement.appendChild(bookTitle);
         bookElement.appendChild(bookAuthor);
         bookElement.appendChild(bookGenre);
-        bookElement.appendChild(reserveButton);
-        modalBody.appendChild(bookElement);
+        bookElement.appendChild(reserveButton)
+
+        // implement when reserve button is c
       };
   
       const genreModal = new bootstrap.Modal(document.getElementById('genreModal'));
@@ -95,5 +96,7 @@ function displayBookInfoModal(bookData) {
   `;
 
   const genreModal = new bootstrap.Modal(document.getElementById('genreModal'));
+  genreModal.show();
+  elementById('genreModal');
   genreModal.show();
 }
