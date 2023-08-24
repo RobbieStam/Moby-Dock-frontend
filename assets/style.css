@@ -99,12 +99,12 @@ img {
 
 .carousel-inner {
   text-align: center;
-  margin-top: 0vh;
+  margin-top: 3vh;
 }
 
 .carousel {
   width: 50vw;
-  height: 70vh;
+  height: 75vh;
   margin-top: 10vh;
 }
 
@@ -139,6 +139,21 @@ h3 {
   background-color: #212529;
   color: #e9ab00;
 }
+
+.landingpage-btns{
+  border: 3px solid #212529;
+  background-color: #e9ab00;
+  margin: 2vw;
+  padding: 3vh;
+  border-radius: 2vh;
+  font-size: 3vh;
+}
+
+.landingpage-btns:hover {
+  background-color: #212529;
+  color: #e9ab00;
+}
+
 
 .submit-btns{
   border: 3px solid #212529;
