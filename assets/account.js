@@ -15,42 +15,40 @@ async function fetchReservedBooks() {
     const pickUpDate = new Date(book["pick_up_by"])
     const formattedDate = pickUpDate.toLocaleDateString('en-GB')
     pickUpBy.textContent = formattedDate
+    
+    const cancel = document.createElement('td')
+    const cancelButton = document.createElement('button')
+    cancelButton.textContent = 'X'
+    cancelButton.classList.add('cancel-btn')
+    cancelButton.setAttribute('reservedId', book["reserved_id"])
 
     row.appendChild(reservedId)
     row.appendChild(name)
     row.appendChild(pickUpBy)
+    cancel.appendChild(cancelButton)
+    row.appendChild(cancel)
 
     table.appendChild(row)
+
+    cancelButton.addEventListener('click', async(event) => {
+      const reservedIdToDelete = event.currentTarget.getAttribute('reservedId')
+     
+      const confirmation = confirm('Are you sure you want to cancel? Click OK to confirm.')
+
+      if (confirmation) {
+         const options = {
+          method:'DELETE'
+        }
+        const response = await fetch (`http://localhost:4000/account/${reservedIdToDelete}`, options)
+    
+        if(response.ok) {
+          console.log('cancelled')
+          event.target.closest('tr').remove()
+        }
+      } 
+    })
   })
 }
 
 fetchReservedBooks()
-
-// using fake data to check if it is working when there is no data to fetch from yet
-  // async function fetchReservedBooks() {
-  //     const mockResponse = [
-  //       { reservedId: '1', name: 'The Da Vinci Code', pickUpBy: '2023-08-23' }, { reservedId: '2', name: 'Moby-Dick', pickUpBy: '2023-08-23' }, { reservedId: '3', name: 'The Pride and Prejudice', pickUpBy: '2023-08-23' }
-  //     ]
-  //     const table = document.querySelector('#reservedBooksTable')
-
-  //     setTimeout(() => {
-  //       mockResponse.forEach(book => {
-  //         const row = document.createElement('tr')
-  //         const reservedId = document.createElement('td')
-  //         const name = document.createElement('td')
-  //         const pickUpBy = document.createElement('td')
-  //         reservedId.textContent = book.reservedId
-  //         name.textContent = book.name
-  //         pickUpBy.textContent = book.pickUpBy
-
-  //         row.appendChild(reservedId)
-  //         row.appendChild(name);
-  //         row.appendChild(pickUpBy)
-
-  //         table.appendChild(row)
-  //       })
-  //     }, 1000)
-  // }
-
-  // fetchReservedBooks()
 
