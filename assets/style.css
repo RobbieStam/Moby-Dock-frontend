@@ -87,8 +87,8 @@ fieldset {
 }
 
 img {
-  height: 320px;
-  width: 225px;
+  height: 400px;
+  width: 275px;
   margin: 0px;
   border-top: 0.6vh solid #f1f3f4;
   border-right: 2vh solid #f1f3f4;
@@ -99,7 +99,7 @@ img {
 
 .carousel-inner {
   text-align: center;
-  margin-top: 6vh;
+  margin-top: 0vh;
 }
 
 .carousel {
