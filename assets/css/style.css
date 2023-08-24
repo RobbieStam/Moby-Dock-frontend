@@ -12,13 +12,17 @@ main {
   text-align: center;
   margin: 12vh 30vw;
   font-size: 3vh;
-  background-color: rgba(255, 255, 255, 0.529);
+  background-color: rgba(255, 210, 112, 0.959);
   padding: 7vh;
   border-radius: 2vh;
 }
 
 .center{
   text-align: center;
+}
+
+p {
+  font-size: 3vh;
 }
 
 #post-form {
@@ -28,13 +32,14 @@ main {
   align-items: center;
   justify-content: center;
   margin: 5vh;
-  background-color: rgb(255, 237, 206);
+  background-color: rgba(255, 210, 112, 0.959);
   border-radius: 2vh; 
+  padding: 4vh;
 }
 
 .post-container {
   text-align: center;
-  background-color: rgb(255, 237, 206);
+  background-color: rgba(255, 210, 112, 0.959);
   margin: 4vh 27vw;
   border-radius: 2vh;
   padding: 4vh;
