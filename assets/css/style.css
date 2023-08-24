@@ -25,6 +25,13 @@ p {
   font-size: 3vh;
 }
 
+#icon {
+  height: 45px;
+  margin-top: 0px;
+  margin-bottom: 15px;
+  margin-right: 7px;
+}
+
 #post-form {
   display: flex;
   flex-direction: column;
@@ -92,7 +99,7 @@ fieldset {
   flex-direction: row;
 }
 
-img {
+.carousel-image {
   height: 400px;
   width: 275px;
   min-width: 20vw;
@@ -103,6 +110,15 @@ img {
   border-top-right-radius: 0.5vh;
   border-bottom-right-radius: 0.4vh;
   border-top-left-radius: 1vh ;
+}
+
+#logo {
+  position: absolute;
+  border: 0px;
+  height: 25vh;
+  width: 13vw;
+  margin-left: 57vh;
+  margin-top: -22vh;
 }
 
 .carousel-inner {
@@ -124,6 +140,7 @@ header {
 h1 {
   font-family: ubuntu;
   font-size: 20vh;
+  color: #212121;
 }
 
 h2 {
