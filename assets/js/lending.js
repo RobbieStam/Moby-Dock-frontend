@@ -21,13 +21,60 @@ function createPostElement (data) {
   return post;
 }
 
+function managePostElement (data) {
+  const post = document.createElement("div");
+  post.className = "post-container";
+
+  const title = document.createElement("h2");
+  title.textContent = data["title"];
+  post.appendChild(title);
+
+  const author = document.createElement("h3");
+  author.textContent = `Author:  ${data["author"]}`;
+  post.appendChild(author);
+
+  const genre = document.createElement("h3")
+  genre.textContent = `Genre: ${data["genre"]}`;
+  post.appendChild(genre);
+
+  const email = document.createElement("h3")
+  email.textContent = `Contact: ${data["email"]}`;
+  post.appendChild(email);
+
+  const button = document.createElement("btn")
+  button.textContent = "Delete Post"
+  button.className = "delete-btn"
+  button.setAttribute('post_id', data["id"])
+  post.appendChild(button);
+
+  button.addEventListener('click', async (e) => {
+    const postToDelete = e.currentTarget.getAttribute('post_Id')
+   
+    const confirmation = confirm('Are you sure you want to delete this post? Click OK to confirm.')
+
+    if (confirmation) {
+       const options = {
+        method:'DELETE'
+      }
+      const response = await fetch (`http://localhost:4000/trades/${postToDelete}`, options)
+  
+      if(response.ok) {
+        window.location.reload();
+      }
+    } 
+  })
+  return post;
+}
+
 function clearPosts () {
   const posts = document.getElementById("posts")
+  posts.childElementCount;
 
-  if (posts.childElementCount > 0) {
-    posts.appendChild("")
+  while(posts.lastChild) {
+    posts.lastChild.remove();
   }
-}
+  }
+
 
 document.getElementById("post-form").addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -69,12 +116,12 @@ async function loadPosts () {
       container.appendChild(elem);
     })
   } else {
-    window.location.assign("./index.html")
+    window.location.assign("./home.html")
   }
   
 }
 
-async function loadUsersPosts () {
+async function loadUserPosts () {
   clearPosts();
   const options = {
     headers: {
@@ -82,7 +129,7 @@ async function loadUsersPosts () {
     }
   }
 
-  const response = await fetch("http://localhost:3000/posts", options);
+  const response = await fetch("http://localhost:4000/trades", options);
 
   if (response.status == 200) {
     const posts = await response.json();
@@ -90,11 +137,11 @@ async function loadUsersPosts () {
     const container = document.getElementById("posts");
 
     posts.forEach(p => {
-      const elem = createPostElement(p);
+      const elem = managePostElement(p);
       container.appendChild(elem);
     })
   } else {
-    window.location.assign("./index.html");
+    window.location.assign("./home.html");
   }
 
 }
