@@ -48,20 +48,82 @@ async function openGenreModal() {
         bookElement.appendChild(reserveButton)
 
         // implement when reserve button is c
-      };
-  
-      const genreModal = new bootstrap.Modal(document.getElementById('genreModal'));
-      genreModal.show();
-    } catch (error) {
-      console.error('Error fetching book suggestions:', error);
-    }
-  }
 
-// function handleReserve(event) {
+  async function reserve() {
+    reserveButton.addEventListener('click', async (event) => {
+    event.preventDefault()
+    const bookId = book.id
+    const name = book.name
+    const pickUpBy = new Date()
+    pickUpBy.setDate(pickUpBy.getDate() + 7)
+
+    const options = {
+      method:'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        book_id: bookId,
+        name: name,
+        pick_up_by: pickUpBy
+      })
+    }   
+          
+    const response = await fetch('http://localhost:4000/account', options)
+  
+    if (response.ok) {
+      alert('Book reserved')
+    } else {
+      alert('Unable to reserve book.')
+    }
+    })
+  }
+  reserve()
+  // implement when reserve button is clicked, it post data to reserved book table - end
+};
+
+const genreModal = new bootstrap.Modal(document.getElementById('genreModal'));
+genreModal.show();
+} catch (error) {
+console.error('Error fetching book suggestions:', error);
+}
+}
+
+//   function handleReserve(event) {
 //   const index = event.target.getAttribute('data-index');
 //   const reservedBook = suggestions[index];
 //   alert(`You've reserved ${reservedBook.title}`);
 // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 document.querySelector('#searchForm').addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -100,3 +162,5 @@ function displayBookInfoModal(bookData) {
   elementById('genreModal');
   genreModal.show();
 }
+
+
