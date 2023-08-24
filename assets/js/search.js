@@ -105,7 +105,11 @@ const modalImage = document.getElementById('modal-image');
 searchButton.addEventListener('click', async () => {
   const searchTerm = searchInput.value.trim();
 
-  if (searchTerm !== '') {
+  if (searchTerm === '') {
+    alert('Please enter a book name to search.');
+    return;
+  }
+    
     try {
       const response = await fetch(`http://localhost:4000/books/name/${searchTerm}`);
       const book = await response.json();
@@ -161,5 +165,4 @@ searchButton.addEventListener('click', async () => {
       } catch (error) {
         console.error('Error fetching book:', error);
       }
-    }
-})
+  })
