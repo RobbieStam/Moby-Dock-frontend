@@ -19,7 +19,7 @@ async function fetchReservedBooks() {
     const cancel = document.createElement('td')
     const cancelButton = document.createElement('button')
     cancelButton.textContent = 'X'
-    cancelButton.classList.add('cancel-btn')
+    cancelButton.classList.add('cancelButton')
     cancelButton.setAttribute('reservedId', book["reserved_id"])
 
     row.appendChild(reservedId)
@@ -30,25 +30,40 @@ async function fetchReservedBooks() {
 
     table.appendChild(row)
 
-    cancelButton.addEventListener('click', async(event) => {
-      const reservedIdToDelete = event.currentTarget.getAttribute('reservedId')
-     
-      const confirmation = confirm('Are you sure you want to cancel? Click OK to confirm.')
+    // modal - start
+    cancelButton.addEventListener('click', async (event) => {
+      confirmationModal.style.display = 'block'
 
-      if (confirmation) {
-         const options = {
-          method:'DELETE'
+      const reservedIdToDelete = event.currentTarget.getAttribute('reservedId')
+
+      const confirmBtn = document.getElementById('confirmBtn');
+      const cancelBtn = document.getElementById('cancelBtn');
+
+      confirmBtn.addEventListener('click', async () => {
+      confirmationModal.style.display = 'none';
+      
+        const options = {
+          method: 'DELETE'
         }
-        const response = await fetch (`http://localhost:4000/account/${reservedIdToDelete}`, options)
-    
-        if(response.ok) {
+
+        const response = await fetch(`http://localhost:4000/account/${reservedIdToDelete}`, options)
+
+        if (response.ok) {
           console.log('cancelled')
           event.target.closest('tr').remove()
         }
-      } 
+      })
+
+      cancelBtn.addEventListener('click', () => {
+        confirmationModal.style.display = 'none'
+      })
     })
+    //modal - end
+
   })
 }
+
+
 
 fetchReservedBooks()
 
