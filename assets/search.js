@@ -18,10 +18,12 @@ async function openGenreModal(genre) {
       const response = await fetch(`http://localhost:4000/books/genre/${genre}`);
       const suggestions = await response.json();
 
-      const maxSuggestions = Math.min(suggestions.length, 5);
+      const shuffledSuggestions = shuffleArray(suggestions);
+
+      const maxSuggestions = Math.min(shuffledSuggestions.length, 5);
 
       for (let i = 0; i < maxSuggestions; i++) {
-        const book = suggestions[i];
+        const book = shuffledSuggestions[i];
 
         const bookElement = document.createElement('div');
         bookElement.classList.add('book-suggestion');
@@ -43,8 +45,6 @@ async function openGenreModal(genre) {
         bookElement.appendChild(bookAuthor);
         bookElement.appendChild(reserveButton)
         modalBody.appendChild(bookElement);
-
-        // implement when reserve button is c
 
   async function reserve() {
     reserveButton.addEventListener('click', async (event) => {
@@ -76,7 +76,6 @@ async function openGenreModal(genre) {
     })
   }
   reserve()
-  // implement when reserve button is clicked, it post data to reserved book table - end
 };
 
 const genreModal = new bootstrap.Modal(document.getElementById('genreModal'));
@@ -86,15 +85,14 @@ console.error('Error fetching book suggestions:', error);
 }
 }
 
-//   function handleReserve(event) {
-//   const index = event.target.getAttribute('data-index');
-//   const reservedBook = suggestions[index];
-//   alert(`You've reserved ${reservedBook.title}`);
-// }
-
-
-
-
+function shuffleArray(array) {
+  // Fisher-Yates shuffle algorithm
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
 
 
 
