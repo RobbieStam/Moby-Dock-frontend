@@ -32,15 +32,20 @@ async function fetchReservedBooks() {
 
     cancelButton.addEventListener('click', async(event) => {
       const reservedIdToDelete = event.currentTarget.getAttribute('reservedId')
-      const options = {
-        method:'DELETE'
-      }
-      const response = await fetch (`http://localhost:4000/account/${reservedIdToDelete}`, options)
-  
-      if(response.ok) {
-        console.log('cancelled')
-        event.target.closest('tr').remove()
-      }
+     
+      const confirmation = confirm('Are you sure you want to cancel? Click OK to confirm.')
+
+      if (confirmation) {
+         const options = {
+          method:'DELETE'
+        }
+        const response = await fetch (`http://localhost:4000/account/${reservedIdToDelete}`, options)
+    
+        if(response.ok) {
+          console.log('cancelled')
+          event.target.closest('tr').remove()
+        }
+      } 
     })
   })
 }

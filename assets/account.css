@@ -44,3 +44,16 @@ th {
   word-wrap: break-word;
 }
 
+.cancel-btn {
+  background-color: #f3b304;
+  border-radius: 20%;
+  height: 30px;
+  width: 30px;
+  border-color: #ffc107;
+}
+
+.cancel-btn:hover {
+  background-color: #212529;
+  color:#f3b304;
+  border-color: #f3b304;
+}
