@@ -56,7 +56,7 @@ function managePostElement (data) {
        const options = {
         method:'DELETE'
       }
-      const response = await fetch (`http://localhost:4000/trades/${postToDelete}`, options)
+      const response = await fetch (`https://frolin-library-api.onrender.com/trades/${postToDelete}`, options)
   
       if(response.ok) {
         window.location.reload();
@@ -95,7 +95,7 @@ document.getElementById("post-form").addEventListener("submit", async (e) => {
     })
   }
 
-  const result = await fetch("http://localhost:4000/trades", options);
+  const result = await fetch("https://frolin-library-api.onrender.com/trades", options);
 
   if (result.status == 201) {
     window.location.reload();
@@ -105,7 +105,7 @@ document.getElementById("post-form").addEventListener("submit", async (e) => {
 
 async function loadPosts () {
   clearPosts();
-  const response = await fetch("http://localhost:4000/trades");
+  const response = await fetch("https://frolin-library-api.onrender.com/trades");
 
   if (response.status == 200) {
     const posts = await response.json();
@@ -129,7 +129,7 @@ async function loadUserPosts () {
     }
   }
 
-  const response = await fetch("http://localhost:4000/trades", options);
+  const response = await fetch("https://frolin-library-api.onrender.com/trades", options);
 
   if (response.status == 200) {
     const posts = await response.json();
