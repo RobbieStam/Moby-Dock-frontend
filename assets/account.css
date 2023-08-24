@@ -35,6 +35,12 @@ th {
 
 }
 #tableHeadingReservedId{
-  width: 25%;
+  width: 20%;
   word-wrap: break-word;
 }
+
+#tableHeadingCancel{
+  width: 5%;
+  word-wrap: break-word;
+}
+
