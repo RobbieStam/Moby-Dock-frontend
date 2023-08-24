@@ -1,7 +1,7 @@
 async function fetchReservedBooks() { 
   const table = document.querySelector('#reservedBooksTable')
 
-  const url = "http://localhost:4000/account"
+  const url = "https://frolin-library-api.onrender.com/account"
   const response = await fetch(url)
   const data = await response.json()
 
@@ -46,7 +46,7 @@ async function fetchReservedBooks() {
           method: 'DELETE'
         }
 
-        const response = await fetch(`http://localhost:4000/account/${reservedIdToDelete}`, options)
+        const response = await fetch(`https://frolin-library-api.onrender.com/${reservedIdToDelete}`, options)
 
         if (response.ok) {
           console.log('cancelled')
