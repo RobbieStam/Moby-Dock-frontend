@@ -46,6 +46,7 @@ async function openGenreModal() {
         bookElement.appendChild(bookAuthor);
         bookElement.appendChild(bookGenre);
         bookElement.appendChild(reserveButton)
+        modalBody.appendChild(bookElement);
 
         // implement when reserve button is c
 
