@@ -2,19 +2,31 @@ function createPostElement (data) {
   const post = document.createElement("div");
   post.className = "post-container";
 
-  const title = document.createElement("h3");
+  const title = document.createElement("h2");
   title.textContent = data["title"];
   post.appendChild(title);
 
   const author = document.createElement("h3");
-  author.textContent = data["author"];
+  author.textContent = `Author:  ${data["author"]}`;
   post.appendChild(author);
 
   const genre = document.createElement("h3")
-  genre.textContent = data["genre"];
+  genre.textContent = `Genre: ${data["genre"]}`;
   post.appendChild(genre);
 
+  const email = document.createElement("h3")
+  email.textContent = `Contact: ${data["email"]}`;
+  post.appendChild(email);
+
   return post;
+}
+
+function clearPosts () {
+  const posts = document.getElementById("posts")
+
+  if (posts.childElementCount > 0) {
+    posts.appendChild("")
+  }
 }
 
 document.getElementById("post-form").addEventListener("submit", async (e) => {
@@ -31,26 +43,26 @@ document.getElementById("post-form").addEventListener("submit", async (e) => {
     body: JSON.stringify({
       title: form.get("title"),
       author: form.get("author"),
-      genre: form.get("genre")
+      genre: form.get("genre"),
+      email: form.get("email")
     })
   }
 
-  const result = await fetch("http://localhost:4000/lenders", options);
+  const result = await fetch("http://localhost:4000/trades", options);
 
   if (result.status == 201) {
     window.location.reload();
-    alert({ message: 'Book Successfully Posted.'})
+    alert('Book Succesfully Uploaded!, Keep an eye on your email for trade offers.')
   }
 })
 
 async function loadPosts () {
-
-  const response = await fetch("http://localhost:4000/lenders", options);
+  clearPosts();
+  const response = await fetch("http://localhost:4000/trades");
 
   if (response.status == 200) {
     const posts = await response.json();
-
-    const container = document.getElementById("posts")
+    const container = document.getElementById("posts");
 
     posts.forEach(p => {
       const elem = createPostElement(p);
@@ -59,6 +71,33 @@ async function loadPosts () {
   } else {
     window.location.assign("./index.html")
   }
+  
 }
 
-loadPosts();
+async function loadUsersPosts () {
+  clearPosts();
+  const options = {
+    headers: {
+      'Authorization': localStorage.getItem("token")
+    }
+  }
+
+  const response = await fetch("http://localhost:3000/posts", options);
+
+  if (response.status == 200) {
+    const posts = await response.json();
+
+    const container = document.getElementById("posts");
+
+    posts.forEach(p => {
+      const elem = createPostElement(p);
+      container.appendChild(elem);
+    })
+  } else {
+    window.location.assign("./index.html");
+  }
+
+}
+
+
+

@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barriecito&family=Ubuntu&display=swap" rel="stylesheet">
   <script defer src="assets/js/lending.js"></script>
+  <script defer src="assets/logout.js"></script>
   <title>Frolin Library</title>
 </head>
 
@@ -24,9 +25,12 @@
         <div class="navbar-nav">
           <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
           <a class="nav-link" href="./search.html">Explore Library</a>
-          <a class="nav-link active" aria-current="page" href="./lending.html">Lend a Book</a>
+          <a class="nav-link active" aria-current="page" href="./lending.html">Trade Books</a>
           <a class="nav-link" href="./login.html">Login</a>
           <a class="nav-link" href="./account.html">Account</a>
+          <li class="nav-item">
+            <button id="logout-btn" class="nav-link btn btn-link">Logout</button>
+          </li>
         </div>
       </div>
     </div>
@@ -38,32 +42,44 @@
 
   <form id="post-form">
     <h3>Post a book you're willing to trade:</h3>
-  <div class="form-row">
+    
+    
+    <div class="form-row">
       <fieldset>
         <label for="title">Book title:</label>
         <input type="text" id="title" name="title" required>
     </fieldset>
+
+    <select id="genre" name="genre" class="form-select form-input" aria-label="genre">
+      <option selected>Select Genre</option>
+      <option value="1">Fiction</option>
+      <option value="2">Romance</option>
+      <option value="3">Crime Thriller</option>
+      <option value="4">Sports</option>
+      <option value="5">Food</option>
+      <option value="6">Travel</option>
+      <option value="7">Biography</option>
+      <option value="8">Autobiography</option>
+    </select>
+    </div>
     <fieldset>
         <label for="author">Author:</label>
         <input type="text" id="author" name="author" required>
     </fieldset>
 
-  <select id="genre" name="genre" class="form-select form-select-sm form-input" aria-label="genre">
-    <option selected>Select Genre</option>
-    <option value="1">Fiction</option>
-    <option value="2">Romance</option>
-    <option value="3">Crime Thriller</option>
-    <option value="4">Sports</option>
-    <option value="5">Food</option>
-    <option value="6">Travel</option>
-    <option value="7">Biography</option>
-    <option value="8">Autobiography</option>
-  </select>
-</div>
-<input type="submit" value="Post" class="submit-btns">
-</form>
-</section>
+    <fieldset>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+    </fieldset>
+        <input type="submit" value="Post" class="submit-btns">
+  </form>
+  </section>
 
+  <div class="center">
+  <input onclick="loadPosts();" type="button" value="See all posts" class="homescreen-btns">
+  <input onclick="loadUserPosts();" id="all-posts" type="button" value="Manage your posts" class="homescreen-btns">
+  </div>
 
+  <div id="posts"></div>
 
   </body>
