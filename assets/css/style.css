@@ -90,6 +90,8 @@ fieldset {
 img {
   height: 400px;
   width: 275px;
+  min-width: 20vw;
+  min-height: 57vh;
   margin: 0px;
   border-top: 0.6vh solid #f1f3f4;
   border-right: 2vh solid #f1f3f4;
