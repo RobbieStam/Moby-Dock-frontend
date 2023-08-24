@@ -9,8 +9,8 @@ document.getElementById("logout-btn").addEventListener("click", async () => {
       });
   
       if (response.status === 200) {
-        localStorage.removeItem("token"); // Clear the stored token
-        window.location.assign('index.html'); // Redirect to the login page
+        localStorage.removeItem("token"); 
+        window.location.assign('index.html'); 
       } else {
         console.error("Logout failed:", response.statusText);
       }
