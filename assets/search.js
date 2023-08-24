@@ -1,12 +1,12 @@
 const genreCards = document.querySelectorAll('.card-item');
 genreCards.forEach(card => {
   card.addEventListener('click', () => {
-    const genre = card.getAttribute('data-genre');
+    const genre = card.classList[1];
     openGenreModal(genre);
   });
 });
 
-async function openGenreModal() {
+async function openGenreModal(genre) {
     const modalTitle = document.getElementById('genreModalLabel');
     const modalBody = document.querySelector('.modal-body');
   
@@ -15,7 +15,7 @@ async function openGenreModal() {
     modalBody.innerHTML = '';
   
     try {
-      const response = await fetch(`http://localhost:4000/books`);
+      const response = await fetch(`http://localhost:4000/books/genre/${genre}`);
       const suggestions = await response.json();
 
       const maxSuggestions = Math.min(suggestions.length, 5);
@@ -32,9 +32,6 @@ async function openGenreModal() {
         const bookAuthor = document.createElement('p');
         bookAuthor.textContent = `Author: ${book.author}`;
         
-        const bookGenre = document.createElement('p');
-        bookGenre.textContent = `Genre: ${book.genre}`;
-        
         const reserveButton = document.createElement('button');
         reserveButton.classList.add('btn', 'btn-primary', 'reserve-btn');
         reserveButton.textContent = 'Reserve';
@@ -44,7 +41,6 @@ async function openGenreModal() {
         
         bookElement.appendChild(bookTitle);
         bookElement.appendChild(bookAuthor);
-        bookElement.appendChild(bookGenre);
         bookElement.appendChild(reserveButton)
         modalBody.appendChild(bookElement);
 
