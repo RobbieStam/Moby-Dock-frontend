@@ -5,12 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-  <script defer src="./assets/index.js"></script>
   <link rel="stylesheet" href="assets/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barriecito&family=Ubuntu&display=swap" rel="stylesheet">
-  <script defer src="assets/carousel.js"></script>
+  <script defer src="assets/js/lending.js"></script>
   <title>Frolin Library</title>
 </head>
 
@@ -25,7 +24,7 @@
         <div class="navbar-nav">
           <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
           <a class="nav-link" href="./search.html">Explore Library</a>
-          <a class="nav-link" href="./lending.html">Lend a Book</a>
+          <a class="nav-link active" aria-current="page" href="./lending.html">Lend a Book</a>
           <a class="nav-link" href="./login.html">Login</a>
           <a class="nav-link" href="./account.html">Account</a>
         </div>
@@ -34,11 +33,11 @@
   </nav>
 
   <section>
-  <h2>Lend a book to a fellow Frolinian</h2>
+  <h2>Trade a book with a Frolinian</h2>
 
 
   <form id="post-form">
-    <h3>Your book's details:</h3>
+    <h3>Post a book you're willing to trade:</h3>
   <div class="form-row">
       <fieldset>
         <label for="title">Book title:</label>
@@ -49,7 +48,7 @@
         <input type="text" id="author" name="author" required>
     </fieldset>
 
-  <select class="form-select form-select-sm form-input" aria-label="Genre">
+  <select id="genre" name="genre" class="form-select form-select-sm form-input" aria-label="genre">
     <option selected>Select Genre</option>
     <option value="1">Fiction</option>
     <option value="2">Romance</option>
@@ -64,10 +63,6 @@
 <input type="submit" value="Post" class="submit-btns">
 </form>
 </section>
-
-<div class="post-container"></div>
-  
-
 
 
 
