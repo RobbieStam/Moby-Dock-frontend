@@ -1,7 +1,7 @@
 async function fetchReservedBooks() { 
   const table = document.querySelector('#reservedBooksTable')
 
-  const url = "https://frolin-library-api.onrender.com/account"
+  const url = "http://localhost:4000/account"
   const response = await fetch(url)
   const data = await response.json()
 
@@ -30,36 +30,28 @@ async function fetchReservedBooks() {
 
     table.appendChild(row)
 
-    // modal - start
-    cancelButton.addEventListener('click', async (event) => {
-      confirmationModal.style.display = 'block'
-
-      const reservedIdToDelete = event.currentTarget.getAttribute('reservedId')
-
-      const confirmBtn = document.getElementById('confirmBtn');
-      const cancelBtn = document.getElementById('cancelBtn');
-
-      confirmBtn.addEventListener('click', async () => {
-      confirmationModal.style.display = 'none';
-      
-        const options = {
-          method: 'DELETE'
-        }
-
-        const response = await fetch(`https://frolin-library-api.onrender.com/${reservedIdToDelete}`, options)
-
-        if (response.ok) {
-          console.log('cancelled')
-          event.target.closest('tr').remove()
-        }
-      })
-
-      cancelBtn.addEventListener('click', () => {
-        confirmationModal.style.display = 'none'
-      })
+   // modal - start
+   cancelButton.addEventListener('click', async (event) => {
+    confirmationModal.style.display = 'block'
+    const reservedIdToDelete = event.currentTarget.getAttribute('reservedId')
+    const confirmBtn = document.getElementById('confirmBtn');
+    const cancelBtn = document.getElementById('cancelBtn');
+    confirmBtn.addEventListener('click', async () => {
+    confirmationModal.style.display = 'none';
+      const options = {
+        method: 'DELETE'
+      }
+      const response = await fetch(`http://localhost:4000/account/${reservedIdToDelete}`, options)
+      if (response.ok) {
+        console.log('cancelled')
+        event.target.closest('tr').remove()
+      }
     })
-    //modal - end
-
+    cancelBtn.addEventListener('click', () => {
+      confirmationModal.style.display = 'none'
+    })
+  })
+  //modal - end
   })
 }
 

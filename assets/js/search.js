@@ -15,7 +15,7 @@ async function openGenreModal(genre) {
     modalBody.innerHTML = '';
   
     try {
-      const response = await fetch(`https://frolin-library-api.onrender.com/books/genre/${genre}`);
+      const response = await fetch(`http://localhost:4000/books/genre/${genre}`);
       const suggestions = await response.json();
 
       const shuffledSuggestions = shuffleArray(suggestions);
@@ -66,7 +66,7 @@ async function openGenreModal(genre) {
       })
     }   
           
-    const response = await fetch('https://frolin-library-api.onrender.com/account', options)
+    const response = await fetch('http://localhost:4000/account', options)
   
     if (response.ok) {
       alert('Book reserved')
@@ -111,7 +111,7 @@ searchButton.addEventListener('click', async () => {
   }
     
     try {
-      const response = await fetch(`https://frolin-library-api.onrender.com/books/name/${searchTerm}`);
+      const response = await fetch(`http://localhost:4000/books/name/${searchTerm}`);
       const book = await response.json();
 
     if (response.ok) {
@@ -144,7 +144,7 @@ searchButton.addEventListener('click', async () => {
             })
           };
 
-          const reserveResponse = await fetch('https://frolin-library-api.onrender.com/account', options)
+          const reserveResponse = await fetch('http://localhost:4000/account', options)
 
           if (reserveResponse.ok) {
             alert('Book reserved')
