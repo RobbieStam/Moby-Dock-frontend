@@ -1,7 +1,7 @@
 document.getElementById("logout-btn").addEventListener("click", async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:4000/users/login", {
+      const response = await fetch("https://frolin-library-api.onrender.com/users/login", {
         method: "DELETE",
         headers: {
           Authorization: token
