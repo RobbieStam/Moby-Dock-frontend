@@ -114,6 +114,11 @@ fieldset {
   border-top-left-radius: 1vh ;
 }
 
+#modal-image {
+  min-width: 10vw;
+  min-height: 30vh;
+}
+
 #logo {
   position: absolute;
   border: 0px;
@@ -216,4 +221,5 @@ h3 {
   cursor: pointer;
 }
 
+/*
 
