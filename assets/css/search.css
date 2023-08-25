@@ -87,3 +87,22 @@ body {
     color: #f3b304;
     border-color: #f3b304;
   }
+
+  #customModal .modal-content {
+    background-color: #ffedce;
+    border: 2px solid #212529;
+    border-radius: 10px;
+    font-family: ubuntu, sans-serif;
+  }
+  
+  #customModal .modal-header {
+    background-color: #f3b304;
+    color: #212529;
+    border-bottom: 1px solid #212529;
+    font-family: ubuntu, sans-serif;
+  }
+  
+  #customModal .modal-footer {
+    background-color: #ffedce;
+    border-top: 1px solid #212529;
+  }

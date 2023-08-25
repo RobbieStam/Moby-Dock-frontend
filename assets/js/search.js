@@ -14,6 +14,17 @@ function shuffleArray(array) {
   return array;
 }
 
+function displayAlertModal(title, message) {
+  const modalLabel = document.getElementById('customModalLabel');
+  const modalBody = document.getElementById('customModalBody');
+
+  modalLabel.textContent = title;
+  modalBody.textContent = message;
+
+  const customModal = new bootstrap.Modal(document.getElementById('customModal'));
+  customModal.show();
+}
+
 // GENRE FUNCTIONALITY
 
 const genreCards = document.querySelectorAll('.card-item');
@@ -92,9 +103,9 @@ function createBookSuggestion(modalBody, book) {
       const reserveResponse = await fetch('https://frolin-library-api.onrender.com/account', options);
 
       if (reserveResponse.ok) {
-        alert('Book reserved');
+        displayAlertModal('Book reserved');
       } else {
-        alert('Unable to reserve book.');
+        displayAlertModal('Unable to reserve book.');
       }
     } catch (error) {
       console.error('Error reserving book: ', error);
@@ -143,9 +154,9 @@ async function displayBookModal(book) {
       const reserveResponse = await fetch('https://frolin-library-api.onrender.com/account', options)
 
       if (reserveResponse.ok) {
-        alert('Book reserved')
+        displayAlertModal('Book reserved')
       } else {
-        alert('Unable to reserve book.')
+        displayAlertModal('Unable to reserve book.')
       }
     } catch (error) {
       console.error('Error reserving book: ', error)
@@ -161,7 +172,7 @@ searchButton.addEventListener('click', async () => {
   const searchTerm = searchInput.value.trim();
 
   if (searchTerm === '') {
-    alert('Please enter a book name to search.');
+    displayAlertModal('Please enter a book name to search.');
     return;
   }
 
@@ -172,7 +183,7 @@ searchButton.addEventListener('click', async () => {
     if (response.ok) {
       displayBookModal(book);
     } else {
-      alert('Apologies! That book is not in our library!');
+      displayAlertModal('Apologies! That book is not in our library!');
     }
   } catch (error) {
     console.error('Error fetching book:', error);

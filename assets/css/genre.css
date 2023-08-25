@@ -194,11 +194,11 @@
   }
 
   #genreModal .result-content .book-suggestion {
-    margin-bottom: 20px; /* Add more space between book suggestions */
+    margin-bottom: 20px;
   }
   
   #genreModal .result-content .book-suggestion .reserve-btn {
-    margin-top: 10px; /* Add some space between book suggestion and reserve button */
+    margin-top: 10px; 
   }
 
   #bookModal .result-content .reserve-btn {
