@@ -53,3 +53,56 @@ body {
     margin-top: -20px;
     margin-bottom: -30px;
   }
+
+  .result-content {
+    width: 80%;
+    max-width: 600px;
+    margin: 15% auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #ffedce;
+    border: 2px solid #212529;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-family: ubuntu, sans-serif;
+  }
+
+  .result-content h6 {
+    font-size: 1.5rem;
+  }
+  
+  .result-content p {
+    font-size: 1.1rem; 
+  }
+
+  #bookModal .result-content .reserve-btn {
+    background-color: #f3b304;
+    color: #212529;
+    border: 2px solid #f3b304;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  }
+  
+  #bookModal .result-content .reserve-btn:hover {
+    background-color: #212529;
+    color: #f3b304;
+    border-color: #f3b304;
+  }
+
+  #customModal .modal-content {
+    background-color: #ffedce;
+    border: 2px solid #212529;
+    border-radius: 10px;
+    font-family: ubuntu, sans-serif;
+  }
+  
+  #customModal .modal-header {
+    background-color: #f3b304;
+    color: #212529;
+    border-bottom: 1px solid #212529;
+    font-family: ubuntu, sans-serif;
+  }
+  
+  #customModal .modal-footer {
+    background-color: #ffedce;
+    border-top: 1px solid #212529;
+  }
